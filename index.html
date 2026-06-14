@@ -54,28 +54,40 @@ from{opacity:0;transform:translateY(30px);}
 to{opacity:1;transform:translateY(0);}
 }
 
-/* PREMIUM LOGO ANIMATION */
+/* LOGO CONTAINER */
 .logo-wrapper{
 display:flex;
 justify-content:center;
 align-items:center;
 margin-bottom:20px;
-animation:popIn 1s ease;
+animation:popIn 0.8s ease;
 }
 
+/* LOGO STYLE */
 .logo{
 width:130px;
 height:130px;
 border-radius:50%;
 object-fit:cover;
 border:3px solid gold;
+box-shadow:0 0 15px rgba(255,215,0,0.5);
+transition:0.3s ease;
+cursor:pointer;
+}
+  
+/* HOVER ZOOM */
+.logo:hover{
+transform:scale(1.08);
+box-shadow:0 0 25px rgba(255,215,0,0.8);
+}
 
+/* CLICK ZOOM */
+.logo:active{
+transform:scale(1.15);
+}
+  
 /* Glow effect */
 box-shadow:0 0 20px rgba(255,215,0,0.6);
-
-/* Spinning slow animation */
-animation:spinGlow 6s infinite linear;
-}
 
 /* Entrance animation */
 @keyframes popIn{
@@ -86,21 +98,6 @@ opacity:0;
 to{
 transform:scale(1);
 opacity:1;
-}
-}
-
-/* Slow premium spin + glow */
-@keyframes spinGlow{
-0%{
-transform:rotate(0deg);
-box-shadow:0 0 10px rgba(255,215,0,0.4);
-}
-50%{
-box-shadow:0 0 25px rgba(255,215,0,0.9);
-}
-100%{
-transform:rotate(360deg);
-box-shadow:0 0 10px rgba(255,215,0,0.4);
 }
 }
 
