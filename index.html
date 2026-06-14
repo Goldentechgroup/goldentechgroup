@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -54,16 +55,13 @@ from{opacity:0;transform:translateY(30px);}
 to{opacity:1;transform:translateY(0);}
 }
 
-/* LOGO CONTAINER */
+/* LOGO */
 .logo-wrapper{
 display:flex;
 justify-content:center;
-align-items:center;
 margin-bottom:20px;
-animation:popIn 0.8s ease;
 }
 
-/* LOGO STYLE */
 .logo{
 width:130px;
 height:130px;
@@ -75,13 +73,10 @@ transition:0.3s ease;
 cursor:pointer;
 }
 
-/* HOVER ZOOM */
 .logo:hover{
 transform:scale(1.08);
-box-shadow:0 0 25px rgba(255,215,0,0.8);
 }
 
-/* CLICK ZOOM */
 .logo:active{
 transform:scale(1.15);
 }
@@ -106,146 +101,17 @@ padding:14px 30px;
 background:gold;
 color:#111;
 border-radius:50px;
-text-decoration:none;
 font-weight:bold;
+border:none;
+cursor:pointer;
 transition:0.3s;
 }
 
 .btn:hover{
-transform:scale(1.1);
+transform:scale(1.05);
 }
 
-/* SECTION */
-.section{
-padding:70px 20px;
-text-align:center;
-}
-
-.section h2{
-font-size:2rem;
-margin-bottom:40px;
-color:gold;
-}
-
-/* SERVICES */
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-max-width:1000px;
-margin:auto;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-padding:25px;
-border-radius:15px;
-border:1px solid rgba(255,255,255,0.1);
-transition:0.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-background:rgba(255,215,0,0.1);
-}
-
-/* CONTACT */
-.contact{
-background:#111827;
-padding:60px 20px;
-text-align:center;
-}
-
-footer{
-padding:20px;
-text-align:center;
-opacity:0.7;
-}
-
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px 18px;
-border-radius:50px;
-font-weight:bold;
-text-decoration:none;
-}
-
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.5);
-backdrop-filter:blur(6px);
-justify-content:center;
-align-items:center;
-z-index:999;
-}
-
-.modal-box{
-background:white;
-color:black;
-padding:25px;
-border-radius:18px;
-text-align:center;
-position:relative;
-animation:popupZoom 0.3s ease;
-}
-
-@keyframes popupZoom{
-from{transform:scale(0.7);opacity:0;}
-to{transform:scale(1);opacity:1;}
-}
-
-.modal.show{
-display:flex;
-}
-
-.close{
-position:absolute;
-top:10px;
-right:15px;
-cursor:pointer;
-font-size:18px;
-}
-
-/* WHY US */
-.why-cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-max-width:1000px;
-margin:auto;
-}
-
-.why-card{
-background:rgba(255,255,255,0.08);
-padding:25px;
-border-radius:18px;
-transition:0.4s;
-}
-
-.why-card:hover{
-transform:translateY(-10px);
-}
-
-/* COURSE */
-.course-card{
-background:rgba(255,255,255,0.08);
-padding:25px;
-border-radius:18px;
-max-width:900px;
-margin:20px auto;
-}
-
+/* TABS */
 .tabs{
 display:flex;
 justify-content:center;
@@ -271,6 +137,124 @@ display:none;
 display:block;
 }
 
+/* SERVICES */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+max-width:1000px;
+margin:auto;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:15px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+background:rgba(255,215,0,0.1);
+}
+
+/* WHY CARDS */
+.why-cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:1000px;
+margin:auto;
+}
+
+.why-card{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:18px;
+transition:0.4s;
+opacity:0;
+transform:translateY(40px);
+}
+
+.why-card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.why-card:hover{
+transform:translateY(-10px);
+}
+
+/* COURSE */
+.course-card{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:18px;
+max-width:900px;
+margin:20px auto;
+opacity:0;
+transform:translateY(40px);
+transition:0.8s;
+}
+
+.course-card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(6px);
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.modal.show{
+display:flex;
+}
+
+.modal-box{
+background:white;
+color:black;
+padding:25px;
+border-radius:18px;
+text-align:center;
+position:relative;
+animation:popupZoom 0.3s ease;
+}
+
+@keyframes popupZoom{
+from{transform:scale(0.7);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+.close{
+position:absolute;
+top:10px;
+right:15px;
+cursor:pointer;
+}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50px;
+text-decoration:none;
+}
+
 </style>
 </head>
 
@@ -281,95 +265,107 @@ display:block;
 <div class="bg-circle bg3"></div>
 
 <header>
-
 <div class="logo-wrapper">
 <img src="WhatsApp Image 2026-06-14 at 12.34.38.jpeg" class="logo">
 </div>
 
 <h1>Golden Tech Group</h1>
-
-<p>Professional Business Setup, Visa Services, PRO Services & Government Solutions in UAE & India</p>
+<p>Professional Business Setup, Visa Services & PRO Services</p>
 
 <button class="btn" onclick="openContact()">Contact Us</button>
-
 </header>
 
 <div class="tabs">
-<button class="tab-btn" onclick="showTab('company')">🏢 Company Services</button>
+<button class="tab-btn" onclick="showTab('company')">🏢 Company</button>
 <button class="tab-btn" onclick="showTab('academy')">🎓 Academy</button>
 </div>
 
+<!-- COMPANY -->
 <div id="company" class="tab-content active-tab">
 
-<div class="section">
-<h2>Our Services</h2>
 <div class="services">
 <div class="card">Business Setup</div>
 <div class="card">Visa Services</div>
 <div class="card">PRO Services</div>
 <div class="card">Trade License</div>
 </div>
-</div>
 
-<div class="section">
-<h2>Why Choose Us</h2>
 <div class="why-cards">
 <div class="why-card">Fast Service</div>
 <div class="why-card">Trusted Company</div>
-<div class="why-card">UAE & India Support</div>
-<div class="why-card">24/7 Support</div>
-</div>
-</div>
-
-<div class="section">
-<h2>Locations</h2>
-<p>Abu Dhabi 🇦🇪 | Kerala 🇮🇳</p>
+<div class="why-card">UAE & India</div>
+<div class="why-card">Support</div>
 </div>
 
 </div>
 
+<!-- ACADEMY -->
 <div id="academy" class="tab-content">
 
-<div class="section">
-<h2>Golden Tech Academy</h2>
-
 <div class="course-card">
-<p>
-The Gulf-Ready Professional Course is a job-focused training program.
-</p>
+<h3>📘 Gulf-Ready Professional Course</h3>
+<p>Job-focused training for UAE documentation and business services.</p>
 </div>
 
 <button class="btn" onclick="openContact()">Enroll Now</button>
 
 </div>
 
-</div>
-
+<!-- CONTACT -->
 <div id="contactModal" class="modal">
 <div class="modal-box">
 <span class="close" onclick="closeContact()">✖</span>
+
 <h2>Contact Us</h2>
 <p>📞 +91 73568 23354</p>
 <p>💬 +971 56 420 8994</p>
 <p>📧 goldentech.clt@gmail.com</p>
+
 </div>
 </div>
 
 <a class="whatsapp" href="https://wa.me/971564208994">💬 WhatsApp</a>
 
 <script>
+
+// TAB SYSTEM
 function showTab(tab){
 document.querySelectorAll(".tab-content").forEach(t=>t.classList.remove("active-tab"));
 document.getElementById(tab).classList.add("active-tab");
 }
 
+// MODAL
 function openContact(){
 document.getElementById("contactModal").classList.add("show");
 }
-
 function closeContact(){
 document.getElementById("contactModal").classList.remove("show");
 }
+
+// ANIMATIONS
+const cards=document.querySelectorAll(".why-card");
+const obs=new IntersectionObserver(e=>{
+e.forEach(x=>{
+if(x.isIntersecting){
+x.target.classList.add("show");
+}
+});
+});
+
+cards.forEach(c=>obs.observe(c));
+
+const course=document.querySelector(".course-card");
+if(course){
+const obs2=new IntersectionObserver(e=>{
+e.forEach(x=>{
+if(x.isIntersecting){
+x.target.classList.add("show");
+}
+});
+});
+obs2.observe(course);
+}
+
 </script>
 
 </body>
