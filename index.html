@@ -342,6 +342,46 @@ margin-bottom:10px;
 margin-bottom:10px;
 color:gold;
 }
+
+  /* COURSE CARD */
+.course-card{
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.12);
+padding:25px;
+border-radius:18px;
+max-width:900px;
+margin:20px auto;
+backdrop-filter:blur(10px);
+text-align:left;
+line-height:1.7;
+
+/* animation base */
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+}
+
+.course-card h3{
+color:gold;
+margin-bottom:15px;
+}
+
+.course-card p{
+margin-bottom:15px;
+color:white;
+}
+
+/* when visible */
+.course-card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* hover effect */
+.course-card:hover{
+transform:scale(1.02);
+box-shadow:0 0 25px rgba(255,215,0,0.15);
+}
   
 </style>
 </head>
@@ -521,11 +561,24 @@ whyObserver.observe(card);
 
 <h2>🎓 Golden Tech Academy</h2>
 
-<p>
-Learn typing services, documentation, business setup procedures,
-and professional office skills.
-</p>
+<div class="course-card hidden">
 
+    <h3>📘 About This Course</h3>
+
+    <p>
+    The <b>Gulf-Ready Professional Course</b> is a practical, job-focused training programme designed for fresh graduates, school leavers, and individuals planning to work in the UAE or the broader Gulf region. It is also suitable for those who wish to build a career in documentation and business services within India.
+    </p>
+
+    <p>
+    This course is developed and delivered by the team behind <b>Golden Tech Typing</b> — a fully operational Business Setup and PRO Services company based in Musaffah, Abu Dhabi. Every topic taught in this course reflects real workflows, real documents, and real procedures used in the UAE today.
+    </p>
+
+</div>
+
+<button class="btn" onclick="openContact()">
+📩 Enroll Now
+</button>
+  
 </div>
 </div>
 
@@ -539,6 +592,20 @@ tab.classList.remove('active-tab');
 document.getElementById(tabId).classList.add('active-tab');
 
 }
+</script>
+
+  <script>
+const courseCard = document.querySelector(".course-card");
+
+const courseObserver = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+},{threshold:0.2});
+
+courseObserver.observe(courseCard);
 </script>
   
 </body>
