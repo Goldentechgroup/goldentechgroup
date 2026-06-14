@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Golden Tech Group | Business Services UAE</title>
+<title>Golden Tech Group | UAE Business Services</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -14,39 +14,71 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
 }
 
 body{
-background:#f4f6f9;
-color:#222;
+background:#0b1220;
+color:white;
+overflow-x:hidden;
+}
+
+/* FLOATING BACKGROUND */
+.bg-circle{
+position:absolute;
+border-radius:50%;
+background:rgba(255,215,0,0.15);
+animation:float 10s infinite ease-in-out;
+}
+
+.bg1{width:200px;height:200px;top:10%;left:10%;}
+.bg2{width:150px;height:150px;bottom:10%;right:10%;}
+.bg3{width:100px;height:100px;top:50%;left:70%;}
+
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-30px);}
+100%{transform:translateY(0px);}
 }
 
 /* HEADER */
 header{
-background:linear-gradient(135deg,#0b2d5c,#123d7a);
-color:white;
 text-align:center;
-padding:80px 20px;
+padding:100px 20px 60px;
+position:relative;
+z-index:2;
+animation:fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
 }
 
 .logo{
-width:120px;
-height:120px;
+width:130px;
+height:130px;
 border-radius:50%;
+border:3px solid gold;
 margin-bottom:20px;
-border:3px solid white;
+object-fit:cover;
+animation:zoomIn 1s ease;
 }
 
-header h1{
+@keyframes zoomIn{
+from{transform:scale(0);}
+to{transform:scale(1);}
+}
+
+h1{
 font-size:3rem;
-margin-bottom:10px;
+color:gold;
 }
 
-header p{
+p{
 max-width:700px;
 margin:auto;
-font-size:1.1rem;
+margin-top:10px;
+opacity:0.9;
 }
 
 /* BUTTON */
@@ -54,78 +86,77 @@ font-size:1.1rem;
 display:inline-block;
 margin-top:25px;
 padding:14px 30px;
-background:#f4c430;
+background:gold;
 color:#111;
-text-decoration:none;
 border-radius:50px;
+text-decoration:none;
 font-weight:bold;
-transition:.3s;
+transition:0.3s;
 }
 
 .btn:hover{
-transform:scale(1.05);
+transform:scale(1.1);
 }
 
 /* SECTION */
 .section{
 padding:70px 20px;
-max-width:1200px;
-margin:auto;
+text-align:center;
 }
 
 .section h2{
-text-align:center;
-margin-bottom:40px;
-color:#0b2d5c;
 font-size:2rem;
+margin-bottom:40px;
+color:gold;
 }
 
-/* CARDS */
+/* SERVICES */
 .services{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
+max-width:1000px;
+margin:auto;
 }
 
 .card{
-background:white;
+background:rgba(255,255,255,0.05);
 padding:25px;
-border-radius:18px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-transition:.3s;
+border-radius:15px;
+border:1px solid rgba(255,255,255,0.1);
+transition:0.4s;
+animation:fadeIn 1.5s ease;
 }
 
 .card:hover{
 transform:translateY(-10px);
+background:rgba(255,215,0,0.1);
 }
 
 /* CONTACT */
 .contact{
-background:#0b2d5c;
-color:white;
-text-align:center;
+background:#111827;
 padding:60px 20px;
+text-align:center;
 }
 
 footer{
-background:#081d3a;
-color:white;
-text-align:center;
 padding:20px;
+text-align:center;
+opacity:0.7;
 }
 
-/* WHATSAPP BUTTON */
+/* WHATSAPP */
 .whatsapp{
 position:fixed;
-right:20px;
 bottom:20px;
+right:20px;
 background:#25D366;
 color:white;
-padding:15px 20px;
+padding:15px 18px;
 border-radius:50px;
-text-decoration:none;
 font-weight:bold;
-box-shadow:0 5px 10px rgba(0,0,0,.3);
+text-decoration:none;
 }
 
 </style>
@@ -133,23 +164,25 @@ box-shadow:0 5px 10px rgba(0,0,0,.3);
 
 <body>
 
-<!-- HEADER -->
+<!-- BACKGROUND SHAPES -->
+<div class="bg-circle bg1"></div>
+<div class="bg-circle bg2"></div>
+<div class="bg-circle bg3"></div>
+
 <header>
 
-<img src="WhatsApp Image 2026-06-14 at 12.34.38.jpeg" class="logo" alt="Logo">
+<img src="WhatsApp Image 2026-06-14 at 12.34.38.jpeg" class="logo">
 
 <h1>Golden Tech Group</h1>
 
 <p>
-Your Trusted Partner for Business Setup, Visa Services, PRO Services,
-Government Transactions & Documentation in Abu Dhabi & India.
+Professional Business Setup, Visa Services, PRO Services & Government Solutions in UAE & India
 </p>
 
 <a href="#contact" class="btn">Contact Us</a>
 
 </header>
 
-<!-- SERVICES -->
 <section class="section">
 
 <h2>Our Services</h2>
@@ -157,49 +190,37 @@ Government Transactions & Documentation in Abu Dhabi & India.
 <div class="services">
 
 <div class="card">🏢 Business Setup</div>
-<div class="card">📄 Trade License Services</div>
+<div class="card">📄 Trade License</div>
 <div class="card">💰 Tax Consultancy</div>
 <div class="card">👔 PRO Services</div>
 <div class="card">🛂 Immigration</div>
 <div class="card">👨‍👩‍👧 Family Visa</div>
 <div class="card">👷 Labor Works</div>
 <div class="card">🏠 Domestic Workers</div>
-<div class="card">🏛 TAMM Services</div>
-<div class="card">⚖ Judicial Department</div>
-<div class="card">🚗 Traffic Services</div>
-<div class="card">🌐 Translation Services</div>
-<div class="card">📑 Attestation Services</div>
-<div class="card">📋 Tasheel • Tawjeeh • Tadbeer</div>
-<div class="card">🏠 Tenancy Contract Services</div>
-<div class="card">🛡 Insurance Services</div>
-<div class="card">🚒 Civil Defence</div>
+<div class="card">🏛 Government Services</div>
+<div class="card">🌐 Translation</div>
+<div class="card">📑 Attestation</div>
+<div class="card">🛡 Insurance</div>
 
 </div>
 
 </section>
 
-<!-- CONTACT -->
 <section class="contact" id="contact">
 
 <h2>Contact Us</h2>
 
-<p>📞 India Office: +91 73568 23354</p>
-<p>💬 UAE WhatsApp: +971 56 420 8994</p>
+<p>📞 India: +91 73568 23354</p>
+<p>💬 WhatsApp: +971 56 420 8994</p>
 <p>📧 goldentech.clt@gmail.com</p>
-<p>📍 Abu Dhabi, UAE</p>
-<p>📍 Kerala, India</p>
 
 </section>
 
-<!-- FOOTER -->
 <footer>
 © 2026 Golden Tech Group. All Rights Reserved.
 </footer>
 
-<!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/971564208994" target="_blank">
-💬 WhatsApp Us
-</a>
+<a class="whatsapp" href="https://wa.me/971564208994">💬 WhatsApp</a>
 
 </body>
 </html>
