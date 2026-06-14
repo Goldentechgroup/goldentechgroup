@@ -261,12 +261,55 @@ cursor:pointer;
 .modal.show{
 display:flex;
 }
+
+  /* NAVBAR */
+.navbar{
+position:sticky;
+top:0;
+z-index:1000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 25px;
+background:rgba(11,18,32,0.85);
+backdrop-filter: blur(10px);
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo-text{
+color:gold;
+font-weight:bold;
+font-size:18px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+margin-left:15px;
+font-weight:500;
+transition:0.3s;
+cursor:pointer;
+}
+
+.nav-links a:hover{
+color:gold;
+}
   
 </style>
 </head>
 
 <body>
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo-text">Golden Tech Group</div>
 
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a onclick="openContact()">Contact</a>
+  </div>
+</div>
+  
 <!-- BACKGROUND SHAPES -->
 <div class="bg-circle bg1"></div>
 <div class="bg-circle bg2"></div>
@@ -288,7 +331,7 @@ Professional Business Setup, Visa Services, PRO Services & Government Solutions 
 
 </header>
 
-<section class="section">
+<section class="section" id="services">
 
 <h2>Our Services</h2>
 
