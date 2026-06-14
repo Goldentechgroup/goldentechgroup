@@ -156,6 +156,29 @@ max-width:1000px;
 margin:auto;
 }
 
+  .tabs{
+display:flex;
+justify-content:center;
+gap:15px;
+margin:30px 0;
+}
+
+.tab-btn{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.tab-content{
+display:none;
+}
+
+.active-tab{
+display:block;
+}
+  
 .card{
 background:rgba(255,255,255,0.05);
 padding:25px;
@@ -346,7 +369,17 @@ Professional Business Setup, Visa Services, PRO Services & Government Solutions 
 
 </header>
 
-<section class="section">
+  <div class="tabs">
+    <button class="tab-btn" onclick="showTab('company')">
+        🏢 Company Services
+    </button>
+
+    <button class="tab-btn" onclick="showTab('academy')">
+        🎓 Golden Tech Academy
+    </button>
+</div>
+  
+<div id="company" class="tab-content active-tab">
 
 <h2>Our Services</h2>
 
@@ -482,6 +515,30 @@ entry.target.classList.add("show");
 whyCards.forEach(card=>{
 whyObserver.observe(card);
 });
+</script>
+
+<div id="academy" class="tab-content">
+
+<h2>🎓 Golden Tech Academy</h2>
+
+<p>
+Learn typing services, documentation, business setup procedures,
+and professional office skills.
+</p>
+
+</div>
+</div>
+
+  <script>
+function showTab(tabId){
+
+document.querySelectorAll('.tab-content').forEach(tab=>{
+tab.classList.remove('active-tab');
+});
+
+document.getElementById(tabId).classList.add('active-tab');
+
+}
 </script>
   
 </body>
