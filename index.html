@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -22,30 +23,10 @@ color:white;
 overflow-x:hidden;
 }
 
-/* FLOATING BACKGROUND */
-.bg-circle{
-position:absolute;
-border-radius:50%;
-background:rgba(255,215,0,0.15);
-animation:float 10s infinite ease-in-out;
-}
-
-.bg1{width:200px;height:200px;top:10%;left:10%;}
-.bg2{width:150px;height:150px;bottom:10%;right:10%;}
-.bg3{width:100px;height:100px;top:50%;left:70%;}
-
-@keyframes float{
-0%{transform:translateY(0px);}
-50%{transform:translateY(-30px);}
-100%{transform:translateY(0px);}
-}
-
 /* HEADER */
 header{
 text-align:center;
 padding:100px 20px 60px;
-position:relative;
-z-index:2;
 animation:fadeIn 1s ease-in;
 }
 
@@ -54,16 +35,13 @@ from{opacity:0;transform:translateY(30px);}
 to{opacity:1;transform:translateY(0);}
 }
 
-/* LOGO CONTAINER */
+/* LOGO */
 .logo-wrapper{
 display:flex;
 justify-content:center;
-align-items:center;
 margin-bottom:20px;
-animation:popIn 0.8s ease;
 }
 
-/* LOGO STYLE */
 .logo{
 width:130px;
 height:130px;
@@ -71,39 +49,16 @@ border-radius:50%;
 object-fit:cover;
 border:3px solid gold;
 box-shadow:0 0 15px rgba(255,215,0,0.5);
-transition:0.3s ease;
+transition:0.3s;
 cursor:pointer;
 }
-  
-/* HOVER ZOOM */
+
 .logo:hover{
 transform:scale(1.08);
-box-shadow:0 0 25px rgba(255,215,0,0.8);
 }
 
-/* CLICK ZOOM */
 .logo:active{
 transform:scale(1.15);
-}
-  
-/* Glow effect */
-box-shadow:0 0 20px rgba(255,215,0,0.6);
-
-/* Entrance animation */
-@keyframes popIn{
-from{
-transform:scale(0);
-opacity:0;
-}
-to{
-transform:scale(1);
-opacity:1;
-}
-}
-
-@keyframes zoomIn{
-from{transform:scale(0);}
-to{transform:scale(1);}
 }
 
 h1{
@@ -118,7 +73,6 @@ margin-top:10px;
 opacity:0.9;
 }
 
-/* BUTTON */
 .btn{
 display:inline-block;
 margin-top:25px;
@@ -126,37 +80,18 @@ padding:14px 30px;
 background:gold;
 color:#111;
 border-radius:50px;
-text-decoration:none;
 font-weight:bold;
+cursor:pointer;
+border:none;
 transition:0.3s;
 }
 
 .btn:hover{
-transform:scale(1.1);
+transform:scale(1.05);
 }
 
-/* SECTION */
-.section{
-padding:70px 20px;
-text-align:center;
-}
-
-.section h2{
-font-size:2rem;
-margin-bottom:40px;
-color:gold;
-}
-
-/* SERVICES */
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-max-width:1000px;
-margin:auto;
-}
-
-  .tabs{
+/* TABS */
+.tabs{
 display:flex;
 justify-content:center;
 gap:15px;
@@ -169,6 +104,8 @@ border:none;
 border-radius:10px;
 cursor:pointer;
 font-weight:bold;
+background:#1a2335;
+color:white;
 }
 
 .tab-content{
@@ -178,14 +115,21 @@ display:none;
 .active-tab{
 display:block;
 }
-  
+
+/* SERVICES */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+max-width:1000px;
+margin:auto;
+}
+
 .card{
 background:rgba(255,255,255,0.05);
 padding:25px;
 border-radius:15px;
-border:1px solid rgba(255,255,255,0.1);
-transition:0.4s;
-animation:fadeIn 1.5s ease;
+transition:0.3s;
 }
 
 .card:hover{
@@ -193,109 +137,7 @@ transform:translateY(-10px);
 background:rgba(255,215,0,0.1);
 }
 
-/* CONTACT */
-.contact{
-background:#111827;
-padding:60px 20px;
-text-align:center;
-}
-
-footer{
-padding:20px;
-text-align:center;
-opacity:0.7;
-}
-
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px 18px;
-border-radius:50px;
-font-weight:bold;
-text-decoration:none;
-}
-
-  /* MODAL BACKGROUND */
-/* GLASS POPUP BACKGROUND */
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.4);
-backdrop-filter: blur(8px);
--webkit-backdrop-filter: blur(8px);
-justify-content:center;
-align-items:center;
-z-index:999;
-}
-  
-/* GLASS POPUP BOX */
-.modal-box{
-background:rgba(255,255,255,0.15);
-backdrop-filter: blur(15px);
--webkit-backdrop-filter: blur(15px);
-border:1px solid rgba(255,255,255,0.3);
-color:white;
-padding:25px;
-border-radius:18px;
-width:300px;
-text-align:center;
-position:relative;
-
-/* animation */
-animation:popupZoom 0.35s ease;
-transform:scale(0.9);
-}
-  /* POPUP ANIMATION */
-@keyframes popupZoom{
-from{
-opacity:0;
-transform:scale(0.7);
-}
-to{
-opacity:1;
-transform:scale(1);
-}
-}
-
-  /* TEXT */
-.modal-box p,
-.modal-box h2{
-color:white;
-}
-  
-/* CLOSE BUTTON */
-.close{
-position:absolute;
-top:10px;
-right:15px;
-font-size:20px;
-cursor:pointer;
-}
-
-/* SHOW POPUP */
-.modal.show{
-display:flex;
-}
-
-.logo-text{
-color:gold;
-font-weight:bold;
-font-size:18px;
-}
-  
-  /* WHY US SECTION */
-.why-us{
-text-align:center;
-}
-
+/* WHY US */
 .why-cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -306,307 +148,240 @@ margin:auto;
 
 .why-card{
 background:rgba(255,255,255,0.08);
-border:1px solid rgba(255,255,255,0.1);
 padding:25px;
 border-radius:18px;
-backdrop-filter:blur(10px);
-
+transition:0.4s;
 opacity:0;
 transform:translateY(40px);
-
-transition:
-transform .4s ease,
-box-shadow .4s ease;
 }
 
 .why-card.show{
 opacity:1;
 transform:translateY(0);
-transition:
-opacity .8s ease,
-transform .8s ease;
 }
 
 .why-card:hover{
 transform:translateY(-10px) scale(1.03);
-box-shadow:0 0 25px rgba(255,215,0,.25);
 }
 
 .why-card span{
-font-size:2.5rem;
-display:block;
-margin-bottom:10px;
+font-size:2rem;
 }
 
-.why-card h3{
-margin-bottom:10px;
-color:gold;
+/* LOCATION */
+.location{
+text-align:center;
 }
 
-  /* COURSE CARD */
+/* COURSE */
 .course-card{
 background:rgba(255,255,255,0.08);
-border:1px solid rgba(255,255,255,0.12);
 padding:25px;
 border-radius:18px;
 max-width:900px;
 margin:20px auto;
-backdrop-filter:blur(10px);
-text-align:left;
-line-height:1.7;
-
-/* animation base */
 opacity:0;
 transform:translateY(40px);
-transition:all 0.8s ease;
+transition:0.8s;
 }
 
-.course-card h3{
-color:gold;
-margin-bottom:15px;
-}
-
-.course-card p{
-margin-bottom:15px;
-color:white;
-}
-
-/* when visible */
 .course-card.show{
 opacity:1;
 transform:translateY(0);
 }
 
-/* hover effect */
-.course-card:hover{
-transform:scale(1.02);
-box-shadow:0 0 25px rgba(255,215,0,0.15);
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(8px);
+justify-content:center;
+align-items:center;
 }
-  
+
+.modal-box{
+background:rgba(255,255,255,0.15);
+padding:25px;
+border-radius:18px;
+text-align:center;
+position:relative;
+animation:popupZoom 0.3s ease;
+}
+
+@keyframes popupZoom{
+from{transform:scale(0.7);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+.modal.show{
+display:flex;
+}
+
+.close{
+position:absolute;
+top:10px;
+right:15px;
+cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+opacity:0.7;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:12px 15px;
+border-radius:50px;
+color:white;
+text-decoration:none;
+}
+
 </style>
 </head>
 
 <body>
-  
-<!-- BACKGROUND SHAPES -->
-<div class="bg-circle bg1"></div>
-<div class="bg-circle bg2"></div>
-<div class="bg-circle bg3"></div>
 
+<!-- HEADER -->
 <header>
 
 <div class="logo-wrapper">
-  <img src="WhatsApp Image 2026-06-14 at 12.34.38.jpeg" class="logo">
+<img src="WhatsApp Image 2026-06-14 at 12.34.38.jpeg" class="logo">
 </div>
 
 <h1>Golden Tech Group</h1>
 
-<p>
-Professional Business Setup, Visa Services, PRO Services & Government Solutions in UAE & India
-</p>
+<p>Professional Business Setup, Visa Services, PRO Services & Government Solutions</p>
 
 <button class="btn" onclick="openContact()">Contact Us</button>
 
 </header>
 
-  <div class="tabs">
-    <button class="tab-btn" onclick="showTab('company')">
-        🏢 Company Services
-    </button>
-
-    <button class="tab-btn" onclick="showTab('academy')">
-        🎓 Golden Tech Academy
-    </button>
+<!-- TABS -->
+<div class="tabs">
+<button class="tab-btn" onclick="showTab('company')">🏢 Company</button>
+<button class="tab-btn" onclick="showTab('academy')">🎓 Academy</button>
 </div>
-  
+
+<!-- COMPANY -->
 <div id="company" class="tab-content active-tab">
 
-<h2>Our Services</h2>
+<h2 style="text-align:center;">Our Services</h2>
 
 <div class="services">
-
-<div class="card">🏢 Business Setup</div>
-<div class="card">📄 Trade License</div>
-<div class="card">💰 Tax Consultancy</div>
-<div class="card">👔 PRO Services</div>
-<div class="card">🛂 Immigration</div>
-<div class="card">👨‍👩‍👧 Family Visa</div>
-<div class="card">👷 Labor Works</div>
-<div class="card">🏠 Domestic Workers</div>
-<div class="card">🏛 Government Services</div>
-<div class="card">🌐 Translation</div>
-<div class="card">📑 Attestation</div>
-<div class="card">🛡 Insurance</div>
-
+<div class="card">Business Setup</div>
+<div class="card">Visa Services</div>
+<div class="card">PRO Services</div>
+<div class="card">Trade License</div>
 </div>
 
-</section>
-
-  <section class="section why-us">
-
-<h2>Why Choose Golden Tech Group?</h2>
+<section class="why-us">
+<h2 style="text-align:center;">Why Choose Us</h2>
 
 <div class="why-cards">
+<div class="why-card"><span>⚡</span>Fast Service</div>
+<div class="why-card"><span>🏢</span>Trusted Company</div>
+<div class="why-card"><span>🌍</span>UAE & India Support</div>
+<div class="why-card"><span>📞</span>24/7 Support</div>
+</div>
+</section>
 
-    <div class="why-card">
-        <span>⚡</span>
-        <h3>Fast Processing</h3>
-        <p>Quick and efficient handling of your applications and services.</p>
-    </div>
-
-    <div class="why-card">
-        <span>🏢</span>
-        <h3>Trusted Experience</h3>
-        <p>Professional support for businesses and individuals across UAE.</p>
-    </div>
-
-    <div class="why-card">
-        <span>🌍</span>
-        <h3>UAE & India Support</h3>
-        <p>Strong presence in Abu Dhabi and Kerala for seamless service.</p>
-    </div>
-
-    <div class="why-card">
-        <span>📞</span>
-        <h3>Dedicated Support</h3>
-        <p>Our team is always ready to assist you whenever you need help.</p>
-    </div>
+<section class="location">
+<h2>📍 Locations</h2>
+<p>Abu Dhabi 🇦🇪 | Kerala 🇮🇳</p>
+</section>
 
 </div>
 
-</section>
+<!-- ACADEMY -->
+<div id="academy" class="tab-content">
 
-  <section class="section">
+<h2 style="text-align:center;">🎓 Golden Tech Academy</h2>
 
-<h2>📍 Our Locations</h2>
+<div class="course-card">
+<h3>📘 About This Course</h3>
 
-<div class="why-cards">
+<p>
+The Gulf-Ready Professional Course is a job-focused training program for UAE career preparation and documentation skills.
+</p>
 
-    <div class="why-card">
-        <span>🇦🇪</span>
-        <h3>Abu Dhabi Office</h3>
-        <p>Main Office - Abu Dhabi, United Arab Emirates</p>
+<p>
+Built by Golden Tech Typing, based in Abu Dhabi, using real workflows and real UAE procedures.
+</p>
+</div>
 
-        <a href="https://maps.app.goo.gl/6hbEf1ipiQWeUs7r5"
-           target="_blank"
-           class="btn">
-           View on Google Maps
-        </a>
-    </div>
-
-    <div class="why-card">
-        <span>🇮🇳</span>
-        <h3>Kerala Office</h3>
-        <p>Back Office - Kerala, India</p>
-
-        <a href="https://maps.google.com/?q=Kerala+India"
-           target="_blank"
-           class="btn">
-           View on Google Maps
-        </a>
-    </div>
+<div style="text-align:center;">
+<button class="btn" onclick="openContact()">📩 Enroll Now</button>
+</div>
 
 </div>
 
-</section>
-  
-<footer>
-© 2026 Golden Tech Group. All Rights Reserved.
-</footer>
+<!-- CONTACT MODAL -->
+<div id="contactModal" class="modal">
+<div class="modal-box">
+<span class="close" onclick="closeContact()">✖</span>
+
+<h2>Contact Us</h2>
+<p>📞 +91 73568 23354</p>
+<p>💬 +971 56 420 8994</p>
+<p>📧 goldentech.clt@gmail.com</p>
+
+</div>
+</div>
 
 <a class="whatsapp" href="https://wa.me/971564208994">💬 WhatsApp</a>
 
-  <!-- CONTACT POPUP -->
-<div id="contactModal" class="modal">
-  <div class="modal-box">
+<script>
 
-    <span class="close" onclick="closeContact()">✖</span>
+// TAB SWITCH
+function showTab(tab){
+document.querySelectorAll(".tab-content").forEach(t=>t.classList.remove("active-tab"));
+document.getElementById(tab).classList.add("active-tab");
+}
 
-    <h2>Contact Golden Tech Group</h2>
-
-    <p>📞 India: +91 73568 23354</p>
-    <p>💬 WhatsApp: +971 56 420 8994</p>
-    <p>📧 goldentech.clt@gmail.com</p>
-
-  </div>
-</div>
-
-  <script>
+// MODAL
 function openContact(){
 document.getElementById("contactModal").classList.add("show");
 }
-
 function closeContact(){
 document.getElementById("contactModal").classList.remove("show");
 }
-</script>
 
-  <script>
-const whyCards = document.querySelectorAll(".why-card");
-
-const whyObserver = new IntersectionObserver((entries)=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show");
+// ANIMATION
+const cards=document.querySelectorAll(".why-card");
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add("show");
 }
 });
-},{threshold:0.2});
-
-whyCards.forEach(card=>{
-whyObserver.observe(card);
-});
-</script>
-
-<div id="academy" class="tab-content">
-
-<h2>🎓 Golden Tech Academy</h2>
-
-<div class="course-card hidden">
-
-    <h3>📘 About This Course</h3>
-
-    <p>
-    The <b>Gulf-Ready Professional Course</b> is a practical, job-focused training programme designed for fresh graduates, school leavers, and individuals planning to work in the UAE or the broader Gulf region. It is also suitable for those who wish to build a career in documentation and business services within India.
-    </p>
-
-    <p>
-    This course is developed and delivered by the team behind <b>Golden Tech Typing</b> — a fully operational Business Setup and PRO Services company based in Musaffah, Abu Dhabi. Every topic taught in this course reflects real workflows, real documents, and real procedures used in the UAE today.
-    </p>
-
-</div>
-
-<button class="btn" onclick="openContact()">
-📩 Enroll Now
-</button>
-  
-</div>
-</div>
-
-  <script>
-function showTab(tabId){
-
-document.querySelectorAll('.tab-content').forEach(tab=>{
-tab.classList.remove('active-tab');
 });
 
-document.getElementById(tabId).classList.add('active-tab');
+cards.forEach(c=>observer.observe(c));
 
-}
-</script>
-
-  <script>
-const courseCard = document.querySelector(".course-card");
-
-const courseObserver = new IntersectionObserver((entries)=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show");
+// COURSE ANIMATION
+const course=document.querySelector(".course-card");
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add("show");
 }
 });
-},{threshold:0.2});
+});
 
-courseObserver.observe(courseCard);
+obs.observe(course);
+
 </script>
-  
+
 </body>
 </html>
