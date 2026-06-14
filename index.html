@@ -170,6 +170,55 @@ box-shadow:0 0 25px rgba(255,215,0,0.8);
 .logo:active{
 transform:scale(1.15);
 }
+
+/* GLASS POPUP BACKGROUND */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.4);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+/* GLASS POPUP BOX */
+.modal-box{
+background:rgba(255,255,255,0.15);
+backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px);
+border:1px solid rgba(255,255,255,0.3);
+color:white;
+padding:25px;
+border-radius:18px;
+width:300px;
+text-align:center;
+position:relative;
+animation:popupZoom 0.35s ease;
+}
+
+/* ANIMATION */
+@keyframes popupZoom{
+from{
+opacity:0;
+transform:scale(0.7);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+/* TEXT */
+.modal-box p,
+.modal-box h2{
+color:white;
+}
   
 </style>
 </head>
@@ -191,7 +240,7 @@ transform:scale(1.15);
 Professional Business Setup, Visa Services, PRO Services & Government Solutions in UAE & India
 </p>
 
-<a href="#contact" class="btn">Contact Us</a>
+<button class="btn" onclick="openContact()">Contact Us</button>
 
 </header>
 
@@ -218,21 +267,36 @@ Professional Business Setup, Visa Services, PRO Services & Government Solutions 
 
 </section>
 
-<section class="contact" id="contact">
-
-<h2>Contact Us</h2>
-
-<p>📞 India: +91 73568 23354</p>
-<p>💬 WhatsApp: +971 56 420 8994</p>
-<p>📧 goldentech.clt@gmail.com</p>
-
-</section>
-
 <footer>
 © 2026 Golden Tech Group. All Rights Reserved.
 </footer>
 
 <a class="whatsapp" href="https://wa.me/971564208994">💬 WhatsApp</a>
 
+  <!-- CONTACT POPUP -->
+<div id="contactModal" class="modal">
+  <div class="modal-box">
+
+    <span class="close" onclick="closeContact()">✖</span>
+
+    <h2>Contact Golden Tech Group</h2>
+
+    <p>📞 India: +91 73568 23354</p>
+    <p>💬 WhatsApp: +971 56 420 8994</p>
+    <p>📧 goldentech.clt@gmail.com</p>
+
+  </div>
+</div>
+
+  <script>
+function openContact(){
+document.getElementById("contactModal").classList.add("show");
+}
+
+function closeContact(){
+document.getElementById("contactModal").classList.remove("show");
+}
+</script>
+  
 </body>
 </html>
