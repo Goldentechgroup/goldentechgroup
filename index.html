@@ -196,6 +196,45 @@ font-weight:bold;
 text-decoration:none;
 }
 
+  /* MODAL BACKGROUND */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+/* BOX */
+.modal-box{
+background:white;
+color:#111;
+padding:25px;
+border-radius:15px;
+width:300px;
+text-align:center;
+position:relative;
+}
+
+/* CLOSE BUTTON */
+.close{
+position:absolute;
+top:10px;
+right:15px;
+font-size:20px;
+cursor:pointer;
+}
+
+/* SHOW POPUP */
+.modal.show{
+display:flex;
+}
+  
 </style>
 </head>
 
@@ -218,7 +257,7 @@ text-decoration:none;
 Professional Business Setup, Visa Services, PRO Services & Government Solutions in UAE & India
 </p>
 
-<a href="#contact" class="btn">Contact Us</a>
+<button class="btn" onclick="openContact()">Contact Us</button>
 
 </header>
 
@@ -245,21 +284,36 @@ Professional Business Setup, Visa Services, PRO Services & Government Solutions 
 
 </section>
 
-<section class="contact" id="contact">
-
-<h2>Contact Us</h2>
-
-<p>📞 India: +91 73568 23354</p>
-<p>💬 WhatsApp: +971 56 420 8994</p>
-<p>📧 goldentech.clt@gmail.com</p>
-
-</section>
-
 <footer>
 © 2026 Golden Tech Group. All Rights Reserved.
 </footer>
 
 <a class="whatsapp" href="https://wa.me/971564208994">💬 WhatsApp</a>
 
+  <!-- CONTACT POPUP -->
+<div id="contactModal" class="modal">
+  <div class="modal-box">
+
+    <span class="close" onclick="closeContact()">✖</span>
+
+    <h2>Contact Golden Tech Group</h2>
+
+    <p>📞 India: +91 73568 23354</p>
+    <p>💬 WhatsApp: +971 56 420 8994</p>
+    <p>📧 goldentech.clt@gmail.com</p>
+
+  </div>
+</div>
+
+  <script>
+function openContact(){
+document.getElementById("contactModal").classList.add("show");
+}
+
+function closeContact(){
+document.getElementById("contactModal").classList.remove("show");
+}
+</script>
+  
 </body>
 </html>
