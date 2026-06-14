@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -59,6 +58,7 @@ to{opacity:1;transform:translateY(0);}
 .logo-wrapper{
 display:flex;
 justify-content:center;
+align-items:center;
 margin-bottom:20px;
 }
 
@@ -260,6 +260,7 @@ text-decoration:none;
 
 <body>
 
+<!-- BACKGROUND -->
 <div class="bg-circle bg1"></div>
 <div class="bg-circle bg2"></div>
 <div class="bg-circle bg3"></div>
@@ -275,9 +276,10 @@ text-decoration:none;
 <button class="btn" onclick="openContact()">Contact Us</button>
 </header>
 
+<!-- TABS -->
 <div class="tabs">
-<button class="tab-btn" onclick="showTab('company')">🏢 Company</button>
-<button class="tab-btn" onclick="showTab('academy')">🎓 Academy</button>
+<button class="tab-btn" onclick="showTab('company')">🏢 Company Services</button>
+<button class="tab-btn" onclick="showTab('academy')">🎓 Golden Tech Academy</button>
 </div>
 
 <!-- COMPANY -->
@@ -328,42 +330,45 @@ text-decoration:none;
 
 <script>
 
-// TAB SYSTEM
-function showTab(tab){
-document.querySelectorAll(".tab-content").forEach(t=>t.classList.remove("active-tab"));
-document.getElementById(tab).classList.add("active-tab");
-}
-
-// MODAL
+// CONTACT
 function openContact(){
 document.getElementById("contactModal").classList.add("show");
 }
+
 function closeContact(){
 document.getElementById("contactModal").classList.remove("show");
 }
 
-// ANIMATIONS
-const cards=document.querySelectorAll(".why-card");
-const obs=new IntersectionObserver(e=>{
-e.forEach(x=>{
-if(x.isIntersecting){
-x.target.classList.add("show");
+// TAB SWITCH
+function showTab(tab){
+document.querySelectorAll(".tab-content").forEach(t=>{
+t.classList.remove("active-tab");
+});
+document.getElementById(tab).classList.add("active-tab");
+}
+
+// WHY ANIMATION
+const whyCards=document.querySelectorAll(".why-card");
+const whyObs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add("show");
 }
 });
 });
+whyCards.forEach(c=>whyObs.observe(c));
 
-cards.forEach(c=>obs.observe(c));
-
+// COURSE ANIMATION
 const course=document.querySelector(".course-card");
 if(course){
-const obs2=new IntersectionObserver(e=>{
-e.forEach(x=>{
-if(x.isIntersecting){
-x.target.classList.add("show");
+const courseObs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add("show");
 }
 });
 });
-obs2.observe(course);
+courseObs.observe(course);
 }
 
 </script>
