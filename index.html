@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -23,10 +22,30 @@ color:white;
 overflow-x:hidden;
 }
 
+/* FLOATING BACKGROUND */
+.bg-circle{
+position:absolute;
+border-radius:50%;
+background:rgba(255,215,0,0.15);
+animation:float 10s infinite ease-in-out;
+}
+
+.bg1{width:200px;height:200px;top:10%;left:10%;}
+.bg2{width:150px;height:150px;bottom:10%;right:10%;}
+.bg3{width:100px;height:100px;top:50%;left:70%;}
+
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-30px);}
+100%{transform:translateY(0px);}
+}
+
 /* HEADER */
 header{
 text-align:center;
 padding:100px 20px 60px;
+position:relative;
+z-index:2;
 animation:fadeIn 1s ease-in;
 }
 
@@ -35,13 +54,16 @@ from{opacity:0;transform:translateY(30px);}
 to{opacity:1;transform:translateY(0);}
 }
 
-/* LOGO */
+/* LOGO CONTAINER */
 .logo-wrapper{
 display:flex;
 justify-content:center;
+align-items:center;
 margin-bottom:20px;
+animation:popIn 0.8s ease;
 }
 
+/* LOGO STYLE */
 .logo{
 width:130px;
 height:130px;
@@ -49,14 +71,17 @@ border-radius:50%;
 object-fit:cover;
 border:3px solid gold;
 box-shadow:0 0 15px rgba(255,215,0,0.5);
-transition:0.3s;
+transition:0.3s ease;
 cursor:pointer;
 }
 
+/* HOVER ZOOM */
 .logo:hover{
 transform:scale(1.08);
+box-shadow:0 0 25px rgba(255,215,0,0.8);
 }
 
+/* CLICK ZOOM */
 .logo:active{
 transform:scale(1.15);
 }
@@ -73,6 +98,7 @@ margin-top:10px;
 opacity:0.9;
 }
 
+/* BUTTON */
 .btn{
 display:inline-block;
 margin-top:25px;
@@ -80,17 +106,146 @@ padding:14px 30px;
 background:gold;
 color:#111;
 border-radius:50px;
+text-decoration:none;
 font-weight:bold;
-cursor:pointer;
-border:none;
 transition:0.3s;
 }
 
 .btn:hover{
-transform:scale(1.05);
+transform:scale(1.1);
 }
 
-/* TABS */
+/* SECTION */
+.section{
+padding:70px 20px;
+text-align:center;
+}
+
+.section h2{
+font-size:2rem;
+margin-bottom:40px;
+color:gold;
+}
+
+/* SERVICES */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+max-width:1000px;
+margin:auto;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:15px;
+border:1px solid rgba(255,255,255,0.1);
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+background:rgba(255,215,0,0.1);
+}
+
+/* CONTACT */
+.contact{
+background:#111827;
+padding:60px 20px;
+text-align:center;
+}
+
+footer{
+padding:20px;
+text-align:center;
+opacity:0.7;
+}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50px;
+font-weight:bold;
+text-decoration:none;
+}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(6px);
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.modal-box{
+background:white;
+color:black;
+padding:25px;
+border-radius:18px;
+text-align:center;
+position:relative;
+animation:popupZoom 0.3s ease;
+}
+
+@keyframes popupZoom{
+from{transform:scale(0.7);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+.modal.show{
+display:flex;
+}
+
+.close{
+position:absolute;
+top:10px;
+right:15px;
+cursor:pointer;
+font-size:18px;
+}
+
+/* WHY US */
+.why-cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:1000px;
+margin:auto;
+}
+
+.why-card{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:18px;
+transition:0.4s;
+}
+
+.why-card:hover{
+transform:translateY(-10px);
+}
+
+/* COURSE */
+.course-card{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:18px;
+max-width:900px;
+margin:20px auto;
+}
+
 .tabs{
 display:flex;
 justify-content:center;
@@ -116,143 +271,15 @@ display:none;
 display:block;
 }
 
-/* SERVICES */
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-max-width:1000px;
-margin:auto;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-padding:25px;
-border-radius:15px;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-background:rgba(255,215,0,0.1);
-}
-
-/* WHY US */
-.why-cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-max-width:1000px;
-margin:auto;
-}
-
-.why-card{
-background:rgba(255,255,255,0.08);
-padding:25px;
-border-radius:18px;
-transition:0.4s;
-opacity:0;
-transform:translateY(40px);
-}
-
-.why-card.show{
-opacity:1;
-transform:translateY(0);
-}
-
-.why-card:hover{
-transform:translateY(-10px) scale(1.03);
-}
-
-.why-card span{
-font-size:2rem;
-}
-
-/* LOCATION */
-.location{
-text-align:center;
-}
-
-/* COURSE */
-.course-card{
-background:rgba(255,255,255,0.08);
-padding:25px;
-border-radius:18px;
-max-width:900px;
-margin:20px auto;
-opacity:0;
-transform:translateY(40px);
-transition:0.8s;
-}
-
-.course-card.show{
-opacity:1;
-transform:translateY(0);
-}
-
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(8px);
-justify-content:center;
-align-items:center;
-}
-
-.modal-box{
-background:rgba(255,255,255,0.15);
-padding:25px;
-border-radius:18px;
-text-align:center;
-position:relative;
-animation:popupZoom 0.3s ease;
-}
-
-@keyframes popupZoom{
-from{transform:scale(0.7);opacity:0;}
-to{transform:scale(1);opacity:1;}
-}
-
-.modal.show{
-display:flex;
-}
-
-.close{
-position:absolute;
-top:10px;
-right:15px;
-cursor:pointer;
-}
-
-/* FOOTER */
-footer{
-text-align:center;
-padding:20px;
-opacity:0.7;
-}
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:12px 15px;
-border-radius:50px;
-color:white;
-text-decoration:none;
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<div class="bg-circle bg1"></div>
+<div class="bg-circle bg2"></div>
+<div class="bg-circle bg3"></div>
+
 <header>
 
 <div class="logo-wrapper">
@@ -261,126 +288,88 @@ text-decoration:none;
 
 <h1>Golden Tech Group</h1>
 
-<p>Professional Business Setup, Visa Services, PRO Services & Government Solutions</p>
+<p>Professional Business Setup, Visa Services, PRO Services & Government Solutions in UAE & India</p>
 
 <button class="btn" onclick="openContact()">Contact Us</button>
 
 </header>
 
-<!-- TABS -->
 <div class="tabs">
-<button class="tab-btn" onclick="showTab('company')">🏢 Company</button>
+<button class="tab-btn" onclick="showTab('company')">🏢 Company Services</button>
 <button class="tab-btn" onclick="showTab('academy')">🎓 Academy</button>
 </div>
 
-<!-- COMPANY -->
 <div id="company" class="tab-content active-tab">
 
-<h2 style="text-align:center;">Our Services</h2>
-
+<div class="section">
+<h2>Our Services</h2>
 <div class="services">
 <div class="card">Business Setup</div>
 <div class="card">Visa Services</div>
 <div class="card">PRO Services</div>
 <div class="card">Trade License</div>
 </div>
+</div>
 
-<section class="why-us">
-<h2 style="text-align:center;">Why Choose Us</h2>
-
+<div class="section">
+<h2>Why Choose Us</h2>
 <div class="why-cards">
-<div class="why-card"><span>⚡</span>Fast Service</div>
-<div class="why-card"><span>🏢</span>Trusted Company</div>
-<div class="why-card"><span>🌍</span>UAE & India Support</div>
-<div class="why-card"><span>📞</span>24/7 Support</div>
+<div class="why-card">Fast Service</div>
+<div class="why-card">Trusted Company</div>
+<div class="why-card">UAE & India Support</div>
+<div class="why-card">24/7 Support</div>
 </div>
-</section>
+</div>
 
-<section class="location">
-<h2>📍 Locations</h2>
+<div class="section">
+<h2>Locations</h2>
 <p>Abu Dhabi 🇦🇪 | Kerala 🇮🇳</p>
-</section>
+</div>
 
 </div>
 
-<!-- ACADEMY -->
 <div id="academy" class="tab-content">
 
-<h2 style="text-align:center;">🎓 Golden Tech Academy</h2>
+<div class="section">
+<h2>Golden Tech Academy</h2>
 
 <div class="course-card">
-<h3>📘 About This Course</h3>
-
 <p>
-The Gulf-Ready Professional Course is a job-focused training program for UAE career preparation and documentation skills.
-</p>
-
-<p>
-Built by Golden Tech Typing, based in Abu Dhabi, using real workflows and real UAE procedures.
+The Gulf-Ready Professional Course is a job-focused training program.
 </p>
 </div>
 
-<div style="text-align:center;">
-<button class="btn" onclick="openContact()">📩 Enroll Now</button>
-</div>
+<button class="btn" onclick="openContact()">Enroll Now</button>
 
 </div>
 
-<!-- CONTACT MODAL -->
+</div>
+
 <div id="contactModal" class="modal">
 <div class="modal-box">
 <span class="close" onclick="closeContact()">✖</span>
-
 <h2>Contact Us</h2>
 <p>📞 +91 73568 23354</p>
 <p>💬 +971 56 420 8994</p>
 <p>📧 goldentech.clt@gmail.com</p>
-
 </div>
 </div>
 
 <a class="whatsapp" href="https://wa.me/971564208994">💬 WhatsApp</a>
 
 <script>
-
-// TAB SWITCH
 function showTab(tab){
 document.querySelectorAll(".tab-content").forEach(t=>t.classList.remove("active-tab"));
 document.getElementById(tab).classList.add("active-tab");
 }
 
-// MODAL
 function openContact(){
 document.getElementById("contactModal").classList.add("show");
 }
+
 function closeContact(){
 document.getElementById("contactModal").classList.remove("show");
 }
-
-// ANIMATION
-const cards=document.querySelectorAll(".why-card");
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting){
-e.target.classList.add("show");
-}
-});
-});
-
-cards.forEach(c=>observer.observe(c));
-
-// COURSE ANIMATION
-const course=document.querySelector(".course-card");
-const obs=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting){
-e.target.classList.add("show");
-}
-});
-});
-
-obs.observe(course);
-
 </script>
 
 </body>
