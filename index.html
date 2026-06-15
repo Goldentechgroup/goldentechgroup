@@ -99,6 +99,23 @@ transition:0.3s;
 transform:scale(1.1);
 }
 
+  .hero-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:25px;
+flex-wrap:wrap;
+}
+
+.whatsapp-btn{
+background:#25D366;
+color:white;
+}
+
+.whatsapp-btn:hover{
+transform:scale(1.08);
+}
+  
 /* SECTION */
 .section{
 padding:70px 20px;
@@ -145,19 +162,6 @@ footer{
 padding:20px;
 text-align:center;
 opacity:0.7;
-}
-
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px 18px;
-border-radius:50px;
-font-weight:bold;
-text-decoration:none;
 }
 
   /* Hover zoom */
@@ -306,7 +310,17 @@ color:gold;
 Professional Business Setup, Visa Services, PRO Services & Government Solutions in UAE & India
 </p>
 
-<button class="btn" onclick="openContact()">Contact Us</button>
+<div class="hero-buttons">
+
+<button class="btn" onclick="openContact()">
+Contact Us
+</button>
+
+<a class="btn whatsapp-btn" href="https://wa.me/971564208994">
+💬 WhatsApp
+</a>
+
+</div>
 
 </header>
 
@@ -402,8 +416,6 @@ Professional Business Setup, Visa Services, PRO Services & Government Solutions 
 <footer>
 © 2026 Golden Tech Group. All Rights Reserved.
 </footer>
-
-<a class="whatsapp" href="https://wa.me/971564208994">💬 WhatsApp</a>
 
   <!-- CONTACT POPUP -->
 <div id="contactModal" class="modal">
