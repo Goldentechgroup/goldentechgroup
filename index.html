@@ -349,25 +349,25 @@ Professional Business Setup, Visa Services, PRO Services & Government Solutions 
 
 <div class="hero-buttons">
 
-  <div class="tabs">
+  <button class="btn" onclick="openContact()">
+    Contact Us
+  </button>
 
-<button class="tab-btn" onclick="showTab('company')">
-🏢 Company Services
-</button>
-
-<button class="tab-btn" onclick="showTab('academy')">
-🎓 Golden Tech Academy
-</button>
+  <a class="btn whatsapp-btn" href="https://wa.me/971564208994">
+    💬 WhatsApp
+  </a>
 
 </div>
-  
-<button class="btn" onclick="openContact()">
-Contact Us
-</button>
 
-<a class="btn whatsapp-btn" href="https://wa.me/971564208994">
-💬 WhatsApp
-</a>
+<div class="tabs">
+
+  <button class="tab-btn" onclick="showTab('company')">
+    🏢 Company Services
+  </button>
+
+  <button class="tab-btn" onclick="showTab('academy')">
+    🎓 Golden Tech Academy
+  </button>
 
 </div>
 
@@ -555,7 +555,7 @@ whyObserver.observe(card);
 });
 </script>
 
-  <script>
+<script>
 function showTab(tabId){
 
 document.querySelectorAll('.tab-content').forEach(tab=>{
